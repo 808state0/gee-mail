@@ -6,13 +6,118 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        
+
+//Message repeater      
+        	var intervalMessage = window.setInterval(LoadMoreMessages, 5000);
+
+					function LoadMoreMessages() {
+
+//Email Generator
+
+        var newEmail= window.getNewMessage()
+        console.log(newEmail)
+
+
+      				var para= document.createElement("p");
+
+        			var parentElement= document.getElementsByClassName("Email")[0]
+        			var parentSubject= document.getElementsByClassName("emailSubject")[0]
+        			var parentSender= document.getElementsByClassName("emailSender")[0]
+        			var parentDate= document.getElementsByClassName("emailDate")[0]
+					
+
+
+		var newMail = getNewMessage();
+
+    				var subject = document.createElement('div');
+                				subject.className = "emailSubject";
+                				subject.innerHTML = "" + newMail.subject
+                				para.appendChild(subject)
+               					parentSubject.appendChild(subject)
+               			console.log(subject)
+                           
+
+                    var sender = document.createElement('div');
+                				sender.className = "emailSender";
+                				sender.innerHTML = "" + newMail.sender;
+                				para.appendChild(sender)
+                				parentSender.appendChild(sender)
+                		console.log(sender)
+
+
+            		var date = document.createElement('div');
+                				date.className = "emailDate";
+                				date.innerHTML = "" + newMail.date;
+                				para.appendChild(date);
+                				parentDate.appendChild(date)
+
+ 						console.log(date)
+
+ 					var body= document.createTextNode(newEmail.body)
+        						para.appendChild(body)
+						parentElement.appendChild(para)
+
+				
+
+			}
+
       };
     </script>
 	</head>
 	<body>
+
 		<div class="container" id="main">
-			Build Me!
-		</div>
-	</body>
+			<div>
+			<header>
+				<div>
+				<h1>   <b>	<font size="12">Gmail</font> </b> 
+				</h1>	
+
+				</div>
+				<div>
+				<b>	<font size="12">Social</font> </b>
+				</div>	
+				</header>
+
+			</div>			
+			<div>
+				<ul>
+					<li>Inbox</li>
+					<li>Important</li>
+					<li>Starred</li>
+					<li>Sent Mail</li>
+					<li>Drafts</li>
+					<li>More  &#x2193</li>
+					</ul>
+				</div>
+				<hr>
+				<div>
+				<span>
+						 <b>	<font size="12">Mail</font> </b> 
+						 <hr>
+						</span>
+						</div>
+		 <div class="span">
+		 				<h3>InboxCounter:</h3>
+		 				 </div>
+		<div class="emailSubject">			 	
+						<h3>Subject:</h3>
+						</div>
+		<div class="emailSender">			 	
+						<h3>Sender:</h3>
+						</div>
+		<div class="EmailDate">
+				 		<h3>Date:</h3>
+				 		</div>
+		<div class="Email"> 
+						<h3>Body:</h3>
+						</div>
+					 </span>
+				</div>
+
+				<dir>
+				<hr>
+				</dir>
+
+				</body>
 </html>
