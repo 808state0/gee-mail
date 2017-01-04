@@ -7,31 +7,114 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 
-//Message repeater      
-        	var intervalMessage = window.setInterval(LoadMoreMessages, 5000);
 
-					function LoadMoreMessages() {
+//toggle emails
 
-//Email Generator
 
-        var newEmail= window.getNewMessage()
-        console.log(newEmail)
+                var newEmail= window.getNewMessage()
+        				console.log(newEmail)
 
 
       				var para= document.createElement("p");
-
-        			var parentElement= document.getElementsByClassName("Email")[0]
+					var parentElement= document.getElementsByClassName("Email")[0]
         			var parentSubject= document.getElementsByClassName("emailSubject")[0]
         			var parentSender= document.getElementsByClassName("emailSender")[0]
         			var parentDate= document.getElementsByClassName("emailDate")[0]
-					
+        			var parentInbox= document.getElementsByClassName("Inbox")[0]
 
+//message count
+         var messageCount=0;
+						
+						var inboxCount = document.createElement("span");
+							
+							inboxCount.appendChild(parentInbox);
+
+
+//generating first mail
 
 		var newMail = getNewMessage();
 
+				messageCount += 1;
+
+					
+					 var inboxCounter = document.createElement('div');
+            			
+            					inboxCounter.innerHTML = "Inbox " + getNewMessage.length;
+            					parentInbox.appendChild(inboxCounter);
+
+					var body= document.createElement("p");
+        			
+        						body.innerHTML = "BODY:" + newMail.body;
+        						para.appendChild(body)
+								parentElement.appendChild(body)
+						console.log(body)
+
+    				var subject = document.createElement('div');
+            
+                				subject.innerHTML = "SUBJECT:" + newMail.subject;
+                				para.appendChild(subject)
+               					parentSubject.appendChild(subject)
+               			console.log(subject)
+                           
+
+                    var sender = document.createElement('div');
+                			
+                				sender.innerHTML = "SENDER:" + newMail.sender;
+                				para.appendChild(sender)
+                				parentSender.appendChild(sender)
+                		console.log(sender)
+
+
+            		var date = document.createElement('div');
+                
+                				date.innerHTML = "DATE:" + newMail.date;
+                				para.appendChild(date);
+                				parentDate.appendChild(date)
+
+
+ 						console.log(date)
+
+
+ 					var content = document.getElementsByClassName("emailSubject");
+             						for( var p = 0; p<content.length; p++){
+                 							content[p].addEventListener('click', toggle);
+	             
+  						function toggle(){
+                 				var content = this.querySelectorAll('.body')[0];
+                				 	if(content.style.display === 'none'){
+                     						content.style.display = 'block';
+                 				} 		else {
+                    						 content.style.display = 'none';
+
+        }
+};
+// messages starting at 10
+ 		newMessageCount= 10;
+      
+
+// intervals for next message        
+
+       setInterval(LoadMoreMessages, 5000);
+
+
+		
+//For new mail
+
+		function LoadMoreMessages(){
+
+			var newMail = getNewMessage();
+
+
+					var body= document.createElement("p");
+        						body.className ="Email";
+        						body.innerHTML = "BODY:" + newMail.body;
+        						para.appendChild(body)
+								parentElement.appendChild(body)
+						console.log(body)
+
     				var subject = document.createElement('div');
                 				subject.className = "emailSubject";
-                				subject.innerHTML = "" + newMail.subject
+                				subject.innerHTML = "SUBJECT:" + newMail.subject;
                 				para.appendChild(subject)
                					parentSubject.appendChild(subject)
                			console.log(subject)
@@ -39,29 +122,40 @@
 
                     var sender = document.createElement('div');
                 				sender.className = "emailSender";
-                				sender.innerHTML = "" + newMail.sender;
+                				sender.innerHTML = "SENDER:" + newMail.sender;
                 				para.appendChild(sender)
                 				parentSender.appendChild(sender)
                 		console.log(sender)
 
 
             		var date = document.createElement('div');
-                				date.className = "emailDate";
-                				date.innerHTML = "" + newMail.date;
+                				date.className = "date";
+                				date.innerHTML = "DATE:" + newMail.date;
                 				para.appendChild(date);
                 				parentDate.appendChild(date)
 
+
  						console.log(date)
 
- 					var body= document.createTextNode(newEmail.body)
-        						para.appendChild(body)
-						parentElement.appendChild(para)
+//toggle function for the new emails//  
+    				var newContent = document.getElementsByClassName("Email");
+            					 for( var c = 0; c<newContent.length; c++){
+                 						newContent[c].addEventListener('click', newToggle);
+             }
+ 					 function newToggle(){
+                			 var newContent = this.querySelectorAll('.body')[0];
+                				 if(newContent.style.display === 'none'){
+                     					newContent.style.display = 'block';
+                				} else {
+                     					newContent.style.display = 'none';
+                }
+		    }	
+		}
+	}
 
-				
 
-			}
 
-      };
+};
     </script>
 	</head>
 	<body>
@@ -97,27 +191,22 @@
 						 <hr>
 						</span>
 						</div>
-		 <div class="span">
-		 				<h3>InboxCounter:</h3>
+		 <div class="Inbox">
 		 				 </div>
 		<div class="emailSubject">			 	
-						<h3>Subject:</h3>
 						</div>
 		<div class="emailSender">			 	
-						<h3>Sender:</h3>
 						</div>
 		<div class="EmailDate">
-				 		<h3>Date:</h3>
 				 		</div>
-		<div class="Email"> 
-						<h3>Body:</h3>
+		<div class="Email" id="Hide"> 
+					
 						</div>
 					 </span>
 				</div>
-
-				<dir>
+				<div>
 				<hr>
-				</dir>
+				</div>
 
 				</body>
 </html>
