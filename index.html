@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<script src="js/mail-generator.js"></script>
@@ -10,72 +11,53 @@
 
 //toggle emails
 
+var para= document.createElement("p");
+var parentEmail= document.getElementsByClassName("Email")[0];
+var parentInbox= document.getElementsByClassName("Inbox")[0];
 
-                var newEmail= window.getNewMessage()
-        				
-
-
-      				var para= document.createElement("p");
-					var parentEmail= document.getElementsByClassName("Email")[0]
-        			var parentSubject= document.getElementsByClassName("emailSubject")[0]
-        			var parentSender= document.getElementsByClassName("emailSender")[0]
-        			var parentDate= document.getElementsByClassName("emailDate")[0]
-        			var parentInbox= document.getElementsByClassName("Inbox")[0]
-
-//message count
-         var messageCount=0;
-						
-						var inboxCount = document.createElement("inbox");
-							
-							parentInbox.appendChild(inboxCount);
+//message counter
+var messageCount=0;
+	var inboxCount = document.createElement("span");
+			parentInbox.appendChild(inboxCount);
 
 
 //generating first mail
+	
+for (var i = 0; i<window.geemails.length; i++){
+		// console.log(geemails[i]);
 
-		var newMail = getNewMessage();
+		messageCount  +=1;
 
-				messageCount += 1;
+		var subject = document.createElement("div");
+				subject.className = "Email";
+				subject.innerHTML = "SUBJECT:" + geemails[i].subject;
+				parentEmail.appendChild(subject);
+			// console.log(subject);
 
-					
-					 var inboxCounter = document.createElement('div');
-            					inboxCounter.id = "Inbox";
-            					inboxCounter.innerHTML = "Inbox " + getNewMessage.length;
-            					parentInbox.appendChild(inboxCounter);
+		var sender = document.createElement('div');
+				sender.className = "Email";
+				subject.innerHTML = "SENDER:" + geemails[i].sender;
+				parentEmail.appendChild(sender);
+				// console.log(sender);
 
-					var body= document.createElement("p");
-        						body.className ="Email";
-        						body.innerHTML = "BODY:" + newMail.body;
-								parentEmail.appendChild(body)
-					
+		var date = document.createElement('div');
+				date.className ="Email";
+				date.innerHTML = "DATE:" + geemails[i].date;
+				parentEmail.appendChild(date);
+				// console.log(date);
 
-    				var subject = document.createElement('div');
-                				subject.className = "emailSubject";
-                				subject.innerHTML = "SUBJECT:" + newMail.subject;
-                				para.appendChild(subject)
-               					parentSubject.appendChild(subject)
-               			
-                           
+		var body = document.createElement('p');
+				body.className = "Email";
+				body.innerHTML = "BODY:" + geemails[i].body;
+				parentEmail.appendChild(body);
+				// console.log(body);
 
-                    var sender = document.createElement('div');
-                				sender.className = "emailSender";
-                				sender.innerHTML = "SENDER:" + newMail.sender;
-                				para.appendChild(sender)
-                				parentSender.appendChild(sender)
-                		
-
-
-            		var date = document.createElement('div');
-                				date.className = "date";
-                				date.innerHTML = "DATE:" + newMail.date;
-                				parentDate.appendChild(date)
-					
-
-
-            var divider = document.createElement('img');
+		var divider = document.createElement('img');
                 divider.className = "divider";
                 divider.src = "https://mpnforum.files.wordpress.com/2012/03/divider-horizon-line.jpg";
                 parentEmail.appendChild(divider); 
 
+                inboxCount.innerHTML = messageCount + ": new Emails";
 
 // intervals for next message        
 
@@ -83,51 +65,49 @@
 
 
 		
-//For new mail
+// For new mail
 
-		function LoadMoreMessages(){
+function LoadMoreMessages(newMail){
 
 
-    				var subject = document.createElement('div');
-                				subject.className = "emailSubject";
-                				subject.innerHTML = "SUBJECT:" + newEmail.subject;
-                				para.appendChild(subject)
-               					parentEmail.appendChild(subject)
+	var newMail = getNewMessage();
+
+
+		messageCount += 1;
+
+					
+
+    	var subject = document.createElement('div');
+                subject.className = "emailSubject";
+               	subject.innerHTML = "SUBJECT:" + newMail.subject;
+               	parentEmail.appendChild(subject);
+               			
+        var sender = document.createElement('div');
+           		sender.className = "emailSender";
+                sender.innerHTML = "SENDER:" + newMail.sender;
+                parentEmail.appendChild(sender);
                	
-                           
-
-                    var sender = document.createElement('div');
-                				sender.className = "emailSender";
-                				sender.innerHTML = "SENDER:" + newEmail.sender;
-                				para.appendChild(sender)
-                				parentEmail.appendChild(sender)
-      
-
-
-            		var date = document.createElement('div');
-                				date.className = "date";
-                				date.innerHTML = "DATE:" + newEmail.date;
-                				para.appendChild(date);
-                				parentEmail.appendChild(date)
-						
-
-					var body= document.createElement("p");
-        						body.className ="Email";
-        						body.innerHTML = "BODY:" + newEmail.body;
-        						para.appendChild(body)
-								parentEmail.appendChild(body)
-						
+        var date = document.createElement('div');
+           		date.className = "date";
+                date.innerHTML = "DATE:" + newMail.date;
+                parentEmail.appendChild(date);
+	
+		var body= document.createElement("p");
+        		body.className ="Email";
+        		body.innerHTML = "BODY:" + newMail.body;
+				parentEmail.appendChild(body);
+					
 
 
             var divider = document.createElement('img');
                 divider.className = "divider";
                 divider.src = "https://mpnforum.files.wordpress.com/2012/03/divider-horizon-line.jpg";
                 parentEmail.appendChild(divider); 
-					
-					}
-
+			
+		}
+	}
 };
-    </script>
+ </script>
 	</head>
 	<body>
 
@@ -164,18 +144,13 @@
 						</div>
 		 <div class="Inbox">
 		 				 </div>
-		<div class="emailSubject">			 	
-						</div>
-		<div class="emailSender">			 	
-						</div>
-		<div class="EmailDate">
-				 		</div>
-		<div class="Email" id="Hide"> 
+
+		<div class ="Email">
 					
 						</div>
 					 </span>
 				</div>
-				<div>
+		<div id="Main">
 				</div>
 
 				</body>
