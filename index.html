@@ -59,6 +59,7 @@ for (var i = 0; i<window.geemails.length; i++){
 
                 inboxCount.innerHTML = messageCount + ": new Emails";
 
+}
 // intervals for next message        
 
        setInterval(LoadMoreMessages, 10000);
@@ -67,15 +68,11 @@ for (var i = 0; i<window.geemails.length; i++){
 		
 // For new mail
 
-function LoadMoreMessages(newMail){
+function LoadMoreMessages(){
 
+		messageCount +=1;
 
 	var newMail = getNewMessage();
-
-
-		messageCount += 1;
-
-					
 
     	var subject = document.createElement('div');
                 subject.className = "emailSubject";
@@ -105,17 +102,15 @@ function LoadMoreMessages(newMail){
                 parentEmail.appendChild(divider); 
 			
 		}
-	}
+	
 };
  </script>
 	</head>
 	<body>
-
-		<div class="container" id="main">
 			<div>
 			<header>
 				<div>
-				<h1>   <b>	<font size="12">Gmail</font> </b> 
+				<h1 id=title>   <b>	<font size="12">GEE-mail</font> </b> 
 				</h1>	
 
 				</div>
