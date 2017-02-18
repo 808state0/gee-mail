@@ -1,0 +1,42 @@
+body{
+	background-color: blue;
+}
+
+#title{
+	font-family: 'Luckiest Guy', cursive;
+	margin-left: 250px;
+	font-size: 50px;
+	color: green;
+}
+
+#giphy{
+	margin-left: 250px;
+	height: 200px;
+	width: 500px;
+}
+
+.name{
+	margin-left: 600px;
+	font-size: 20px;
+	color: green;
+	font-family: 'Luckiest Guy' , cursive;
+}
+
+#nav{
+font-family: 'Luckiest Guy', cursive;
+
+}
+
+.divider{
+	height: 5px;
+	width:  10000px;
+}
+
+.Inbox{
+	font-family: "Luckiest Guy" , cursive;
+}
+
+.Email{
+	font-family: 'Just Another Hand', cursive;
+	font-size: 30px;
+}
