@@ -31,35 +31,55 @@ for (var i = 0; i<window.geemails.length; i++){
 		messageCount +=1;
 
 		var subject = document.createElement("div");
-				subject.className = "emailSender";
+				subject.className = "emailSubject";
 				subject.innerHTML = "SUBJECT:" + " " + geemails[i].subject;
 				parentEmail.appendChild(subject);
 				// console.log(subject);
 
-		var sender = document.createElement('div');
+		var sender = document.createElement("div");
 				sender.className = "emailSender";
 				sender.innerHTML = "SENDER:" + " " + geemails[i].sender;
 				parentEmail.appendChild(sender);
 				// console.log(sender);
 
-		var date = document.createElement('div');
+		var date = document.createElement("div");
 				date.className ="emailDate";
 				date.innerHTML = "DATE:" + " " + geemails[i].date;
 				parentEmail.appendChild(date);
 				// console.log(date);
 
-		var body = document.createElement('p');
-				body.className = "Email";
+		var body = document.createElement("p");
+				body.className = " bodyEmail";
 				body.innerHTML = "BODY:" + " " + geemails[i].body;
 				parentEmail.appendChild(body);
 				// console.log(body);
 
-		var divider = document.createElement('img');
+		var divider = document.createElement("img");
                 divider.className = "divider";
                 divider.src = "https://mpnforum.files.wordpress.com/2012/03/divider-horizon-line.jpg";
                 parentEmail.appendChild(divider); 
 
-               inboxCounter.innerHTML = ": " + messageCount ;
+               // inboxCounter.innerHTML = ": " + messageCount ;
+
+// onclick toggle for emails
+
+// var clickMe = document.getElementsByClassName("emailSender");
+// 	for(var j = 0; j<clickMe.length; i++){
+// 		clickMe[j].addEventListener("click", showMore);
+
+// }
+// 		function showMore(){
+// 			var bodyHide = this.querySelectorAll(".bodyEmail")[0];
+// 			if(bodyHide.style.display === "none"){
+// 				bodyHide.style.display = "block";
+// 			}else{
+// 				bodyHide.style.display = "block";
+// 			}
+
+		}
+	
+
+
 
 }
 // intervals for next message        
@@ -76,12 +96,12 @@ function LoadMoreMessages(){
 	var newMail = getNewMessage();
 					
 
-    	var subject = document.createElement('div');
+    	var subject = document.createElement("div");
                 subject.className = "emailSubject";
                	subject.innerHTML = "SUBJECT:" + " " + newMail.subject;
                	parentEmail.appendChild(subject);
                			
-        var sender = document.createElement('div');
+        var sender = document.createElement("div");
            		sender.className = "emailSender";
                 sender.innerHTML = "SENDER:" + " " + newMail.sender;
                 parentEmail.appendChild(sender);
@@ -92,19 +112,17 @@ function LoadMoreMessages(){
                 parentEmail.appendChild(date);
 	
 		var body= document.createElement("p");
-        		body.className ="Email";
+        		body.className ="bodyEmail";
         		body.innerHTML = "BODY:" + " " + newMail.body;
 				parentEmail.appendChild(body);
 					
-
-
-            var divider = document.createElement('img');
+		var divider = document.createElement("img");
                 divider.className = "divider";
                 divider.src = "https://mpnforum.files.wordpress.com/2012/03/divider-horizon-line.jpg";
                 parentEmail.appendChild(divider); 
 				
 				inboxCounter.innerHTML = ": " + messageCount ;
-	}
+	
 };
  </script>
 	</head>
@@ -136,8 +154,7 @@ function LoadMoreMessages(){
 				<hr>
 				<div>
 				<span>
-						<h1 class="Inbox"> NEW MAIL</h1>
-
+						<h1 class="Inbox"> NEW MAIL</h1> <iframe src="https://media2.giphy.com/media/qfR7ATmV8yry8/giphy.gif" frameborder="0" id="giphy2"></iframe>
 						 <hr>
 						</span>
 						</div>
@@ -145,7 +162,8 @@ function LoadMoreMessages(){
 					
 						</div>
 					 </span>
-				</div>
+
+					 <div> <iframe src="https://media3.giphy.com/media/vCKC987OpQAco/giphy.gif" frameborder="0" id="giphy3"></iframe></div>
 
 				</body>
 </html>

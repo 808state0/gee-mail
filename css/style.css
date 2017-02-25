@@ -29,14 +29,33 @@ font-family: 'Luckiest Guy', cursive;
 
 .divider{
 	height: 5px;
-	width:  10000px;
+	width:  100%;
+
 }
 
 .Inbox{
 	font-family: "Luckiest Guy" , cursive;
 }
 
+#giphy2{
+	height: 450px;
+	width: 500px;
+}
+
 .Email{
 	font-family: 'Just Another Hand', cursive;
 	font-size: 30px;
+	color: white;
+	margin-left: 500px;
+}
+
+.bodyEmail{
+	margin-left: 100px;
+	margin-right: 1000px;
+}
+
+#giphy3{
+	margin-left: 1000px;
+	height: 1000px;
+	width: 1000px;
 }
