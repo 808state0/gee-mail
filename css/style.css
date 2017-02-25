@@ -52,6 +52,7 @@ font-family: 'Luckiest Guy', cursive;
 .bodyEmail{
 	margin-left: 100px;
 	margin-right: 1000px;
+	display: none;
 }
 
 #giphy3{
